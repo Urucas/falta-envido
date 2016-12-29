@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title> Falta Envido</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />		
+		<script type="text/javascript" charset="utf-8" src="lib/common/phonegap.js"></script>    	
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+    	<script type="text/javascript">
+		try {
+			menu.hideSoftkeys();
+			widget.setDisplayPortrait();
+			widget.setNavigationEnabled(false);
+		}
+		catch (e) { /*alert(e.message);*/ }
+		</script>
+	</head>
+	<body onload="init()" style="width:240;">
+	
+		<div id="splash">
+			<img src="img/falta_envido-.png" class="texto"/>
+            <img src="img/splash_2.png" class="carta"/>
+			<img src="img/cargando.gif" class="carta"/>
+			<div id="cargando"></div>
+		</div>
+		
+		<script language="javascript" type="text/javascript" src="lib/common/jquery-1.3.2.min.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/common/json2.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/common/utils.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/common/ajax.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/falta_envido.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/modules/Home.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/modules/Players.js"></script>
+		<script language="javascript" type="text/javascript" src="lib/modules/Tanteador.js"></script>
+		
+		<div id="content">
+			<div id="main_container" ></div>   
+
+            <!--div id="nuevo_continuar">
+                <button class="btn_1"  onclick="window.location='login.html';">Nuevo</button>
+                <button class="btn_2" onclick="window.location='login.html';">Continuar</button>
+            </div-->
+            <!--div id="separador_pie"></div-->		
+						
+		</div>
+		
+		<div style="display:none;">
+			<img src="img/fosforo_1.png" />
+			<img src="img/fosforo_2.png" />
+			<img src="img/fosforo_3.png" />
+			<img src="img/fosforo_4.png" />
+			<img src="img/fosforo_5.png" />
+		</div>			
+				
+	</body>
+</html>
