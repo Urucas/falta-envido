@@ -4,7 +4,7 @@
 * 											{ margin:0px; padding:0px; border:0px; outline:none; }
 a 											{ text-decoration:none; }
 body 										{ margin:0 auto; text-align:center; font-family:Arial, Helvetica, sans-serif; color:#FFF; font-size:14px; background:#266038; /*url(../img/bg_index.png) center top no-repeat;*/ -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0px; color:#132c19; font-weight:bold; font-size:14px; background:none; outline:none; }  
+button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0px; color:#132c19; font-weight:bold; font-size:14px; background:none; outline:none; }
 
 #content									{ width:360px; margin:0 auto; text-align:left; padding:0; }
 
@@ -44,8 +44,8 @@ button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0p
 #logo_counter								{ text-align:left; padding:0 0 0 0 0; width:360px; margin:0 auto; }
 #logo_counter button.logo					{ width:151px; height:80px; margin:0 0 0 22px; padding:0; background:url(../img/logo_counter_.png) no-repeat top left ; }
 #logo_counter button.clear					{ width:62px; height:75px; padding:0; margin:0 10px 0 0; background:url(../img/clear.png) no-repeat top left; float:right; }
-#content_counter							{ 
-	/*background:url(../img/bg_counter.png) no-repeat center top;*/ width:100%; margin:0 0 0 0; 
+#content_counter							{
+	/*background:url(../img/bg_counter.png) no-repeat center top;*/ width:100%; margin:0 0 0 0;
 }
 
 /* nombres de equipos */
@@ -75,7 +75,7 @@ button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0p
 #content_counter #right .modulo 			{ width:111px; height:104px; float:right; margin:22px 0 0 0; }
 #content_counter #right .modulo div			{ width:67px; float:left;  }
 
-/* fosforos */               
+/* fosforos */
 #content_counter .modulo button.fosforo_1	{ background:url(../img/fosforo_1.png) no-repeat -22px 0; width:22px; height:82px; float:left; margin-top:11px; }
 #content_counter .modulo button.fosforo_2	{ background:url(../img/fosforo_2.png) no-repeat 0 -22px; width:67px; height:22px; float:left; margin:0; }
 #content_counter .modulo button.fosforo_3	{ background:url(../img/fosforo_3.png) no-repeat -22px 0; width:22px; height:82px; float:left; margin-top:11px; }
@@ -104,7 +104,7 @@ button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0p
 #publicidad									{ bottom:0; margin:0 auto; padding:2px 0; position:absolute; text-align:center; width:360px; }
 
 /* ventana emergente */
-#popup, #popup2								{ width:100%; height:100%; background:url(../img/overlay.png) repeat-y top center; top:0; left:0; position:fixed; z-index:99; display:none;}
+#popup, #popup2								{ width:100%; height:100%; background:rgba(0,0,0,0.5) repeat-y top center; top:0; left:0; position:fixed; z-index:99; display:none;}
 #popup #mensaje								{ width:250px; height:131px; margin:0 auto; padding:20px; background:url(../img/bg_mensaje.png) no-repeat top center; top:190px; position:relative;}
 #popup #mensaje div							{ color:#132C19; font-weight:bold; height:82px; margin:0 auto; width:230px; }
 #popup #mensaje button						{ width:60px; height:50px;  background:url(../img/bg_buttom_sino.png); }
