@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.faltaenvido" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+    <name>Falta Envido</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+      FaltaEnvido te hace la vida mas facil dando te la posibilidad de ir anotando el puntaje en tu movil con una interfaz amigable y facil de usar
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="hello@urucas.com" href="http://faltaenvido.urucas.com">
+        Urucas
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
