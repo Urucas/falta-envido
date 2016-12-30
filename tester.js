@@ -26,7 +26,7 @@ function createGrid (suite, args) {
         testArgs.push('--deviceName')
         testArgs.push(suite.devices[d])
         testArgs.push('--platformVersion')
-        testArgs.push(`'${suite.platforms[p]}'`)
+        testArgs.push(suite.platforms[p])
         grid.push(args.concat(testArgs))
         testArgs = []
       }
@@ -42,6 +42,9 @@ function runTest (cmd, grid) {
   let test = grid.shift()
   let child = spawn(cmd, test, {stdio: 'inherit'})
   child.on('close', function (code) {
+    if (code !== 0) {
+      process.exit(1)
+    }
     runTest(cmd, grid)
   })
 }
@@ -65,7 +68,7 @@ function testAllDaThings () {
         args.push('--deviceName')
         args.push(`'${suite[key].avd.deviceName}'`)
         args.push('--platformVersion')
-        args.push(`'${suite[key].avd.platformVersion}'`)
+        args.push(suite[key].avd.platformVersion)
       }
       grid.push(args)
     } else {

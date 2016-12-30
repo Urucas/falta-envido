@@ -14,7 +14,7 @@ let caps = {
   'browserName': '',
   'deviceName': argv['deviceName'],
   'platformName': 'Android',
-  'platformVersion': argv['platformVersion']
+  'platformVersion': `${argv.platformVersion}`
 }
 let ondemand
 let localApp = path.join(pkgDir.sync(__dirname), 'platforms', 'android', 'build', 'outputs', 'apk', 'android-debug.apk')
@@ -22,13 +22,15 @@ if (process.env.IS_LOCAL === '1') {
   ondemand = 'http://localhost:4723/wd/hub'
   caps['avd'] = argv['avdName']
   caps['app'] = localApp
+  caps['name'] = 'Testing local'
 } else {
   ondemand = `http://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:80/wd/hub`
   caps['appiumVersion'] = argv['appiumVersion']
   caps['app'] = 'sauce-storage:android-debug.apk'
   caps['public'] = 'public'
+  caps['name'] = `Faltaenvido test ${caps.deviceName} ${caps.platformVersion} - Appium ${caps.appiumVersion}`
 }
-console.log('Running test: ', caps)
+console.log(caps['name'])
 describe('Android tests', async () => {
   before(async () => {
     driver = await wd.promiseChainRemote(ondemand)
