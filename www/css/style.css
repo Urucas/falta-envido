@@ -114,5 +114,5 @@ button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0p
 #popup2 #mensaje2								{ width:250px; height:131px; margin:0 auto; padding:20px; background:url(../img/bg_mensaje.png) no-repeat top center; top:190px; position:relative;}
 #popup2 #mensaje2 div							{ color:#132C19; font-weight:bold; height:82px; margin:0 auto; width:230px; }
 #popup2 #mensaje2 button						{ width:60px; height:50px;  background:url(../img/bg_buttom_sino.png); }
-#popup2 #mensaje2 button#si					{ margin:0 37px;}
-#popup2 #mensaje2 button#no					{ margin:0 26px 0 16px;}
+#popup2 #mensaje2 button#si2				{ margin:0 37px;}
+#popup2 #mensaje2 button#no2				{ margin:0 26px 0 16px;}
