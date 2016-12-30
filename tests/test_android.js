@@ -28,8 +28,8 @@ if (process.env.IS_LOCAL === '1') {
   caps['app'] = 'sauce-storage:android-debug.apk'
   caps['public'] = 'public'
 }
-
-describe('Test app on Android 4.4', async () => {
+console.log('Running test: ', caps)
+describe('Android tests', async () => {
   before(async () => {
     driver = await wd.promiseChainRemote(ondemand)
     await driver.init(caps)

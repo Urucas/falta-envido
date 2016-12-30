@@ -25,7 +25,7 @@ function createGrid (suite, args) {
         testArgs.push(suite.appiumVersions[a])
         testArgs.push('--deviceName')
         testArgs.push(suite.devices[d])
-        testArgs.push('platformVersion')
+        testArgs.push('--platformVersion')
         testArgs.push(suite.platforms[p])
         grid.push(args.concat(testArgs))
         testArgs = []
