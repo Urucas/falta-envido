@@ -1,0 +1,48 @@
+{
+  "name": "falta-envido",
+  "version": "0.0.1",
+  "description": "altaEnvido te hace la vida mas facil dando te la posibilidad de ir anotando el puntaje en tu movil con una interfaz amigable y facil de usar",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "pretest" : "standard",
+    "test": "./node_modules/mocha/bin/mocha tests/* -t 15s -R nyan",
+    "prestart": "standard",
+    "precommit": "standard",
+    "prepush": "standard",
+    "android": "cordova prepare android && cordova run android",
+    "android-device": "cordova prepare android && cordova run android --device",
+    "ios": "cordova prepare ios && cordova run ios"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Urucas/falta-envido.git"
+  },
+  "keywords": [
+    "app",
+    "truco",
+    "anotador"
+  ],
+  "author": "Urucas <hello@urucas.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Urucas/falta-envido/issues"
+  },
+  "homepage": "https://github.com/Urucas/falta-envido#readme",
+  "devDependencies": {
+    "husky": "^0.12.0",
+    "mocha": "^3.2.0",
+    "standard": "^8.6.0"
+  },
+  "standard": {
+    "globals": [],
+    "ignore": [
+      "plugins/*",
+      "platforms/*",
+      "www/*",
+      "hooks/*"
+    ]
+  }
+}
