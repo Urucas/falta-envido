@@ -2,6 +2,8 @@
 const wd = require('wd')
 const sleep = require('asyncbox').sleep
 const chai = require('chai')
+const path = require('path')
+const pkgDir = require('pkg-dir')
 const expect = chai.expect
 
 let driver
@@ -14,15 +16,16 @@ let caps = {
   'platformName': 'Android',
   'platformVersion': '5.0'
 }
-// set env for local testing
 let ondemand
-if (process.env.IS_LOCAL) {
+let localApp = path.join(pkgDir.sync(__dirname), 'platforms', 'android', 'build', 'outputs', 'apk', 'android-debug.apk')
+if (process.env.IS_LOCAL === '1') {
   ondemand = 'http://localhost:4723/wd/hub'
   caps['avd'] = 'Nexus_6_API_23'
-  caps['app'] = `${__dirname}/../platforms/android/build/outputs/apk/android-debug.apk`
+  caps['app'] = localApp
 } else {
-  ondemand = `http://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:8000/wd/hub`
+  ondemand = `https://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:8000/wd/hub`
   caps['appiumVersion'] = '1.5.3'
+  caps['app'] = `sauce-storage:android-debug.apk`
 }
 
 describe('Test app on Android 4.4', async () => {
