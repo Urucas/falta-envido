@@ -11,7 +11,7 @@
     "test": "./node_modules/mocha/bin/mocha tests/* --compilers js:babel-core/register -t 0 -R nyan",
     "prestart": "standard",
     "precommit": "standard",
-    "prepush": "standard",
+    "prepush": "standard && cordova build android && ./uploader.js",
     "build-android": "cordova prepare android && cordova build android",
     "build-ios": "cordova prepare ios && cordova build ios",
     "android": "cordova prepare android && cordova run android",
@@ -44,6 +44,8 @@
     "chai-as-promised": "^6.0.0",
     "husky": "^0.12.0",
     "mocha": "^3.2.0",
+    "pkg-dir": "^1.0.0",
+    "sauce-uploader": "^1.0.5",
     "standard": "^8.6.0",
     "wd": "^1.1.1"
   },
