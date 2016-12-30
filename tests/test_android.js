@@ -22,6 +22,7 @@ if (process.env.IS_LOCAL) {
   caps['app'] = `${__dirname}/../platforms/android/build/outputs/apk/android-debug.apk`
 } else {
   ondemand = `http://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:8000/wd/hub`
+  caps['appiumVersion'] = '1.5.3'
 }
 
 describe('Test app on Android 4.4', async () => {
@@ -145,7 +146,9 @@ describe('Test app on Android 4.4', async () => {
       { id: 'arrow_right', visible: true },
       { id: 'content_fosforos', visible: true },
       { id: 'left', visible: true },
-      { id: 'right', visible: true }
+      { id: 'right', visible: true },
+      { id: 'tanteador_nos', visible: true },
+      { id: 'tanteador_ellos', visible: true }
     ]
     for (let i in ids) {
       let id = ids[i].id
@@ -153,8 +156,183 @@ describe('Test app on Android 4.4', async () => {
       let el = await driver.elementById(id)
       expect(el).to.not.equal(null)
       let isVisible = await el.isDisplayed()
-      console.log({ id: id, v: visible })
       expect(isVisible).to.equal(visible)
     }
+    let el = await driver.elementById('nosotros_col')
+    let text = await el.text()
+    expect(text).to.equal('vruno')
+    el = await driver.elementById('ellos_col')
+    text = await el.text()
+    expect(text).to.equal('pame')
+    let matches = await driver.elementsByClassName('match')
+    expect(matches.length).to.equal(30)
+    let nosPoints = await driver.elementById('tanteador_nos')
+    text = await nosPoints.text()
+    expect(text).to.equal('0')
+    let ellosPoints = await driver.elementById('tanteador_ellos')
+    text = await ellosPoints.text()
+    expect(text).to.equal('0')
+    let nosMatches = []
+    let ellosMatches = []
+    for (let i in matches) {
+      let m = matches[i]
+      let attr = await m.getAttribute('class')
+      if (attr.indexOf('nos') !== -1) {
+        nosMatches.push(m)
+      } else {
+        ellosMatches.push(m)
+      }
+      expect(attr.indexOf('activo')).to.equal(-1)
+      await m.click()
+      attr = await m.getAttribute('class')
+      expect(attr.indexOf('activo')).to.not.equal(-1)
+      await m.click()
+      attr = await m.getAttribute('class')
+      expect(attr.indexOf('activo')).to.equal(-1)
+    }
+    expect(nosMatches.length).to.equal(15)
+    expect(ellosMatches.length).to.equal(15)
+    // testing nosotros matches
+    for (let i in nosMatches) {
+      let m = nosMatches[i]
+      await m.click()
+      text = await nosPoints.text()
+      expect(parseInt(text)).to.equal(parseInt(i) + 1)
+    }
+    await sleep(500)
+    ids = [
+      { id: 'popup2' },
+      { id: 'mensaje2' },
+      { id: 'si2' },
+      { id: 'no2' }
+    ]
+    for (let i in ids) {
+      let id = ids[i].id
+      let el = await driver.elementById(id)
+      expect(el).to.not.equal(null)
+      let isVisible = await el.isDisplayed()
+      expect(isVisible).to.equal(true)
+    }
+    el = await driver.elementById('no2')
+    await el.click()
+    await sleep(200)
+    el = await driver.elementById('popup2')
+    let isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(false)
+    for (let i in nosMatches) {
+      let m = nosMatches[i]
+      await m.click()
+      await sleep(100)
+      text = await nosPoints.text()
+      expect(parseInt(text)).to.equal(15 - parseInt(i) - 1)
+    }
+    await sleep(200)
+    text = await nosPoints.text()
+    expect(text).to.equal('0')
+    // testing ellos matches
+    for (let i in ellosMatches) {
+      let m = ellosMatches[i]
+      await m.click()
+      await sleep(100)
+      text = await ellosPoints.text()
+      expect(parseInt(text)).to.equal(parseInt(i) + 1)
+    }
+    await sleep(500)
+    ids = [
+      { id: 'popup2' },
+      { id: 'mensaje2' },
+      { id: 'si2' },
+      { id: 'no2' }
+    ]
+    for (let i in ids) {
+      let id = ids[i].id
+      let el = await driver.elementById(id)
+      expect(el).to.not.equal(null)
+      let isVisible = await el.isDisplayed()
+      expect(isVisible).to.equal(true)
+    }
+    el = await driver.elementById('no2')
+    await el.click()
+    await sleep(200)
+    el = await driver.elementById('popup2')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(false)
+    for (let i in ellosMatches) {
+      let m = ellosMatches[i]
+      await m.click()
+      await sleep(100)
+      text = await ellosPoints.text()
+      expect(parseInt(text)).to.equal(15 - parseInt(i) - 1)
+    }
+    text = await ellosPoints.text()
+    expect(text).to.equal('0')
+    await sleep(500)
+    for (let i in ellosMatches) {
+      let m = ellosMatches[i]
+      await m.click()
+    }
+    await sleep(100)
+    el = await driver.elementById('si2')
+    await el.click()
+    await sleep(500)
+    el = await driver.elementById('tanteador_container')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(false)
+    el = await driver.elementById('players_container')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(true)
+    await sleep(1500)
+  })
+  it('Test Tanteador container 30 & Clear button', async () => {
+    let el = await driver.elementById('atreinta')
+    await el.click()
+    await sleep(100)
+    el = await driver.elementById('comenzar')
+    await el.click()
+    await sleep(1500)
+    el = await driver.elementById('tanteador_container')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(true)
+    let matches = await driver.elementsByClassName('match')
+    expect(matches.length).to.equal(60)
+    let elClear = await driver.elementByClassName('clear')
+    isVisible = await elClear.isDisplayed()
+    expect(isVisible).to.equal(true)
+    await elClear.click()
+    await sleep(200)
+    let ids = [
+      { id: 'popup' },
+      { id: 'mensaje' },
+      { id: 'si' },
+      { id: 'no' }
+    ]
+    for (let i in ids) {
+      let id = ids[i].id
+      let el = await driver.elementById(id)
+      expect(el).to.not.equal(null)
+      let isVisible = await el.isDisplayed()
+      expect(isVisible).to.equal(true)
+    }
+    el = await driver.elementById('no')
+    await el.click()
+    await sleep(100)
+    el = await driver.elementById('popup')
+    let isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(false)
+    el = await driver.elementById('tanteador_container')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(true)
+    await elClear.click()
+    await sleep(200)
+    el = await driver.elementById('si')
+    await el.click()
+    await sleep(500)
+    el = await driver.elementById('tanteador_container')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(false)
+    el = await driver.elementById('players_container')
+    isVisible = await el.isDisplayed()
+    expect(isVisible).to.equal(true)
+    await sleep(1500)
   })
 })
