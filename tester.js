@@ -5,7 +5,7 @@ const pkgDir = require('pkg-dir')
 const suite = {
   'android': {
     'testName': 'test_android.js',
-    'appiumVersions': ['1.4.16', '1.5.3'],
+    'appiumVersions': ['1.5.3'],
     'devices': ['Android Emulator'],
     'platforms': ['5.1', '5.0', '4.4'],
     'avd': {
