@@ -8,7 +8,7 @@
   },
   "scripts": {
     "pretest": "standard",
-    "test": "./node_modules/mocha/bin/mocha tests/* --compilers js:babel-core/register -t 0 -R nyan",
+    "test": "./tester.js",
     "prestart": "standard",
     "precommit": "standard",
     "prepush": "standard && cordova build android && ./uploader.js",
@@ -40,6 +40,7 @@
     "babel-plugin-transform-async-to-generator": "^6.16.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-runtime": "^6.20.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "husky": "^0.12.0",
@@ -63,5 +64,8 @@
       "www/*",
       "hooks/*"
     ]
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
   }
 }

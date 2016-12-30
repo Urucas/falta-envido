@@ -5,26 +5,26 @@ const chai = require('chai')
 const path = require('path')
 const pkgDir = require('pkg-dir')
 const expect = chai.expect
-
+const argv = require('minimist')(process.argv.slice(2))
 let driver
 let caps = {
   'appPackage': 'com.faltaenvido',
   'appActivity': '.MainActivity',
   'appWaitActivity': '.MainActivity',
   'browserName': '',
-  'deviceName': 'Android Emulator',
+  'deviceName': argv['deviceName'],
   'platformName': 'Android',
-  'platformVersion': '5.0'
+  'platformVersion': argv['platformVersion']
 }
 let ondemand
 let localApp = path.join(pkgDir.sync(__dirname), 'platforms', 'android', 'build', 'outputs', 'apk', 'android-debug.apk')
 if (process.env.IS_LOCAL === '1') {
   ondemand = 'http://localhost:4723/wd/hub'
-  caps['avd'] = 'Nexus_6_API_23'
+  caps['avd'] = argv['avdName']
   caps['app'] = localApp
 } else {
   ondemand = `https://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:8000/wd/hub`
-  caps['appiumVersion'] = '1.5.3'
+  caps['appiumVersion'] = argv['appiumVersion']
   caps['app'] = 'sauce-storage:android-debug.apk'
   caps['public'] = 'public'
 }
