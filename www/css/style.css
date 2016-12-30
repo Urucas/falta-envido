@@ -10,10 +10,10 @@ button, button:focus, button:active			{ border:0; padding:5px 0 8px 0; margin:0p
 
 /* INDEX */
 
-#ingresar									{ width:100%; text-align:center; background:url(../img/lineas_1.png) center no-repeat; padding:55px 0 ; margin:0px 0 0 0; }
+#ingresar, #comenzar									{ width:100%; text-align:center; background:url(../img/lineas_1.png) center no-repeat; padding:55px 0 ; margin:0px 0 0 0; }
 #ingresar_index 							{ width:100%; text-align:center; background:url(../img/lineas_1.png) center no-repeat; padding:55px 0 ; margin:0px 0 0 0; }
 
-#ingresar button, #ingresar_index button	{ height:46px; width:161px; background:url(../img/bottom.png) center no-repeat; font-size:16px; }
+#ingresar button, #ingresar_index button, #comenzar button	{ height:46px; width:161px; background:url(../img/bottom.png) center no-repeat; font-size:16px; }
 #nuevo_continuar 							{ width:100%; text-align:center; background:url(../img/lineas_2.png) center no-repeat; padding:3px 0; }
 #nuevo_continuar button 					{ width:109px; height:38px; background:url(../img/bottom.png) center no-repeat; }
 #nuevo_continuar button.btn_1 				{ margin:0 0 0 1px; }
