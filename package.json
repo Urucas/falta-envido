@@ -12,6 +12,8 @@
     "prestart": "standard",
     "precommit": "standard",
     "prepush": "standard",
+    "build-android": "cordova build android",
+    "build-ios": "cordova build ios",
     "android": "cordova prepare android && cordova run android",
     "android-device": "cordova prepare android && cordova run android --device",
     "ios": "cordova prepare ios && cordova run ios"
