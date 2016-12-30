@@ -25,7 +25,8 @@ if (process.env.IS_LOCAL === '1') {
 } else {
   ondemand = `https://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:8000/wd/hub`
   caps['appiumVersion'] = '1.5.3'
-  caps['app'] = `sauce-storage:android-debug.apk`
+  caps['app'] = 'sauce-storage:android-debug.apk'
+  caps['public'] = 'public'
 }
 
 describe('Test app on Android 4.4', async () => {
