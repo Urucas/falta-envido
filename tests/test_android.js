@@ -30,15 +30,18 @@ if (process.env.IS_LOCAL === '1') {
   caps['name'] = `Faltaenvido test ${caps.deviceName} ${caps.platformVersion} - Appium ${caps.appiumVersion}`
 }
 console.log(caps['name'])
+let res
 describe('Android tests', async () => {
   before(async () => {
     driver = await wd.promiseChainRemote(ondemand)
-    await driver.init(caps)
+    res = await driver.init(caps)
+    console.log(`https://saucelabs.com/beta/tests/${res[0]}/watch`)
   })
   after(async () => {
     await driver.quit()
   })
   it('Test Splash container', async () => {
+    console.log()
     await driver.context('WEBVIEW_com.faltaenvido')
     await sleep(1500)
     let ids = [
