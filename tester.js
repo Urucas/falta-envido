@@ -57,10 +57,10 @@ function testAllDaThings () {
     args.push('js:babel-core/register')
     args.push('-t')
     args.push('0')
-    args.push('-R')
-    args.push('nyan')
     let grid = []
     if (process.env.IS_LOCAL === '1') {
+      args.push('-R')
+      args.push('nyan')
       // local testing
       if (key === 'android') {
         args.push('--avdName')
