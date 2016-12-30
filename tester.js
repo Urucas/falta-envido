@@ -26,7 +26,7 @@ function createGrid (suite, args) {
         testArgs.push('--deviceName')
         testArgs.push(suite.devices[d])
         testArgs.push('--platformVersion')
-        testArgs.push(suite.platforms[p])
+        testArgs.push(`'${suite.platforms[p]}'`)
         grid.push(args.concat(testArgs))
         testArgs = []
       }
@@ -65,7 +65,7 @@ function testAllDaThings () {
         args.push('--deviceName')
         args.push(`'${suite[key].avd.deviceName}'`)
         args.push('--platformVersion')
-        args.push(suite[key].avd.platformVersion)
+        args.push(`'${suite[key].avd.platformVersion}'`)
       }
       grid.push(args)
     } else {
