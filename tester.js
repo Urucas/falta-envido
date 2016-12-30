@@ -6,8 +6,8 @@ const suite = {
   'android': {
     'testName': 'test_android.js',
     'appiumVersions': ['1.4.16', '1.5.3'],
-    'devices': ['Android Emulator', 'Android GoogleApi Emulator'],
-    'platforms': ['4.4', '5.0', '5.1'],
+    'devices': ['Android Emulator'],
+    'platforms': ['5.1', '5.0', '4.4'],
     'avd': {
       'name': 'Nexus_6_API_23',
       'deviceName': 'Android Emulator',
