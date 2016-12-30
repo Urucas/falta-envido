@@ -1,4 +1,3 @@
-
 const wd = require('wd')
 const sleep = require('asyncbox').sleep
 const chai = require('chai')
