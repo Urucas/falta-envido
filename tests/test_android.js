@@ -23,7 +23,7 @@ if (process.env.IS_LOCAL === '1') {
   caps['avd'] = argv['avdName']
   caps['app'] = localApp
 } else {
-  ondemand = `https://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:8000/wd/hub`
+  ondemand = `http://${process.env.SAUCE_USER}:${process.env.SAUCE_KEY}@ondemand.saucelabs.com:80/wd/hub`
   caps['appiumVersion'] = argv['appiumVersion']
   caps['app'] = 'sauce-storage:android-debug.apk'
   caps['public'] = 'public'
