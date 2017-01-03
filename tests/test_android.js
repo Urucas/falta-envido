@@ -282,7 +282,7 @@ describe('Android tests', async () => {
     await sleep(100)
     el = await driver.elementById('si2')
     await el.click()
-    await sleep(500)
+    await sleep(1500)
     el = await driver.elementById('tanteador_container')
     isVisible = await el.isDisplayed()
     expect(isVisible).to.equal(false)
@@ -307,7 +307,7 @@ describe('Android tests', async () => {
     isVisible = await elClear.isDisplayed()
     expect(isVisible).to.equal(true)
     await elClear.click()
-    await sleep(200)
+    await sleep(1000)
     let ids = [
       { id: 'popup' },
       { id: 'mensaje' },
